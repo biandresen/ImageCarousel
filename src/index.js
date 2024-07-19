@@ -1,5 +1,11 @@
 import "./assets/styles/style.css";
-import { addImages, displayImages, changePosition } from "./imageCarousel";
+import {
+  createImages,
+  displayImages,
+  changePosition,
+  createImageButtons,
+  autoScroll,
+} from "./imageCarousel";
 
 const imageLocations = [
   "./assets/images/img1.jpg",
@@ -10,7 +16,9 @@ const imageLocations = [
   "./assets/images/img6.jpg",
 ];
 createImages(imageLocations);
+createImageButtons();
 displayImages();
+autoScroll();
 
 const leftArrow = document.querySelector("#left");
 const rightArrow = document.querySelector("#right");
