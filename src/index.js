@@ -25,10 +25,8 @@ const rightArrow = document.querySelector("#right");
 
 leftArrow.addEventListener("click", () => {
   changePosition(1);
-  displayImages();
 });
 
 rightArrow.addEventListener("click", () => {
   changePosition(2);
-  displayImages();
 });

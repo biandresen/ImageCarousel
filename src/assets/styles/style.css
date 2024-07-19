@@ -78,7 +78,7 @@ body {
   height: 350px;
   width: 350px;
 }
-.next {
+.arrow {
   position: absolute;
   width: fit-content;
   height: fit-content;
@@ -87,15 +87,15 @@ body {
   cursor: pointer;
   transition: 0.4s;
 }
-.next:hover {
+.arrow:hover {
   transform: scale(1.2);
   transition: 0.4s;
 }
-#left {
+.left-arrow {
   top: 50%;
   left: 1%;
 }
-#right {
+.right-arrow {
   top: 50%;
   right: 1%;
 }

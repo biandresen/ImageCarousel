@@ -18,28 +18,62 @@ export function createImages(imageLocations) {
   });
 }
 
-export function createImageButtons() {
+function createContainers() {
   const container = document.querySelector(".container");
   const selectContainer = document.createElement("div");
   selectContainer.classList.add("select-container");
   container.appendChild(selectContainer);
+}
+
+function createArrowButtons(selectContainer) {
+  //Create the buttons and icons
+  const arrowButtonLeft = document.createElement("button");
+  arrowButtonLeft.classList.add("left-arrow", "arrow");
+  const leftArrowIcon = document.createElement("i");
+  leftArrowIcon.classList.add("fa-solid", "fa-circle-arrow-left", "fa-2xl");
+  const arrowButtonRight = document.createElement("button");
+  arrowButtonRight.classList.add("right-arrow", "arrow");
+  const rightArrowIcon = document.createElement("i");
+  rightArrowIcon.classList.add("fa-solid", "fa-circle-arrow-right", "fa-2xl");
+
+  //Append the buttons and icons
+  arrowButtonLeft.appendChild(leftArrowIcon);
+  arrowButtonRight.appendChild(rightArrowIcon);
+  selectContainer.append(arrowButtonLeft, arrowButtonRight);
+
+  //Add event listeners for the buttons
+  arrowButtonLeft.addEventListener("click", () => {
+    changePosition(1);
+  });
+  arrowButtonRight.addEventListener("click", () => {
+    changePosition(2);
+  });
+}
+
+export function createImageButtons(selectContainer) {
+  //Create image select buttons
   for (let i = 0; i < imageList.length; i++) {
     const button = document.createElement("button");
     button.setAttribute("id", i);
     button.classList.add("image-select");
+
+    //Append buttons
     selectContainer.appendChild(button);
+
+    //Push button to button list
     buttonList.push(button);
+
+    //Add event listener to each button
     button.addEventListener("click", (event) => {
       const buttonID = event.target.getAttribute("id");
-      selectImage(buttonID);
+      markButton(buttonID);
       placement = Number(buttonID);
-      console.log("From button: " + placement);
       displayImages();
     });
   }
 }
 
-function selectImage(id) {
+function markButton(id) {
   const ID = id;
   buttonList.forEach((button) => button.classList.remove("active"));
   buttonList[ID].classList.add("active");
@@ -52,6 +86,7 @@ export function changePosition(dir) {
   } else if (direction === 2 && placement < imageList.length) {
     placement++;
   }
+  displayImages();
 }
 
 export function displayImages() {
@@ -95,6 +130,5 @@ export function displayImages() {
 export function autoScroll() {
   setInterval(() => {
     changePosition(2);
-    displayImages();
   }, 5000);
 }
