@@ -3,7 +3,6 @@ import {
   createImages,
   displayImages,
   setUpElements,
-  createImageButtons,
   autoScroll,
 } from "./imageCarousel";
 
