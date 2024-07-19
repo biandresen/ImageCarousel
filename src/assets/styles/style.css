@@ -10,6 +10,10 @@
   --shadow: 0px 1px 5px 1px rgb(0, 0, 0, 0.8);
   --text-color: rgba(0, 0, 0, 0.8);
 }
+:root {
+  --shadow: 0px 1px 5px 1px rgb(0, 0, 0, 0.8);
+  --text-color: rgba(0, 0, 0, 0.8);
+}
 h1,
 h2,
 h3,
@@ -36,10 +40,10 @@ body {
   display: grid;
   place-content: center;
 }
-.container {
+.image-carousel-module {
   position: relative;
-  height: 450px;
-  width: 800px;
+  height: 700px;
+  width: 1700px;
   background: transparent;
   box-shadow: var(--shadow);
   display: grid;
@@ -47,36 +51,32 @@ body {
   border-radius: 10px;
 }
 .slide-container {
-  height: 350px;
-  width: 710px;
+  height: 100%;
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
 }
 .slides {
   display: flex;
   place-content: center;
 }
-#slide-left,
-#slide-right {
+.left-slide,
+.right-slide {
   transform: scale(0.9);
-  height: 350px;
-  width: 175px;
-  position: relative;
+  height: 100%;
+  width: 23%;
   opacity: 30%;
 }
-.image {
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-}
-#display {
+.middle-slide {
   display: flex;
   place-content: center;
-  height: 350px;
-  width: 350px;
+  max-height: 100%;
+  max-width: 45%;
   box-shadow: var(--shadow);
 }
-.next {
+.arrow {
   position: absolute;
   width: fit-content;
   height: fit-content;
@@ -87,15 +87,15 @@ body {
   cursor: pointer;
   transition: 0.4s;
 }
-.next:hover {
+.arrow:hover {
   transform: scale(1.2);
   transition: 0.4s;
 }
-#left {
+.left-arrow {
   top: 50%;
   left: 0.8%;
 }
-#right {
+.right-arrow {
   top: 50%;
   right: 0.8%;
 }
@@ -107,7 +107,7 @@ body {
   left: 50%;
   translate: -50%;
 }
-.image-select {
+.image-select-button {
   width: 12px;
   height: 12px;
   border: 2px solid var(--text-color);
@@ -116,12 +116,17 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-.image-select:hover {
+.image-select-button:hover {
   transform: scale(1.2);
   transition: 0.3s;
 }
-.image-select.active {
+.image-select-button.active {
   background: transparent;
   border: 3px solid var(--text-color);
   transform: scale(1.3);
+}
+.image {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
 }

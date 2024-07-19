@@ -2,7 +2,7 @@ import "./assets/styles/style.css";
 import {
   createImages,
   displayImages,
-  changePosition,
+  setUpElements,
   createImageButtons,
   autoScroll,
 } from "./imageCarousel";
@@ -16,19 +16,6 @@ const imageLocations = [
   "./assets/images/img6.jpg",
 ];
 createImages(imageLocations);
-createImageButtons();
+setUpElements();
 displayImages();
 autoScroll();
-
-const leftArrow = document.querySelector("#left");
-const rightArrow = document.querySelector("#right");
-
-leftArrow.addEventListener("click", () => {
-  changePosition(1);
-  displayImages();
-});
-
-rightArrow.addEventListener("click", () => {
-  changePosition(2);
-  displayImages();
-});
