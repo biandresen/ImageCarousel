@@ -40,17 +40,43 @@ body {
   display: grid;
   place-content: center;
 }
+.slide-container {
+  height: 350px;
+  width: 710px;
+  display: flex;
+  gap: 5px;
+}
 .slides {
-  display: grid;
+  display: flex;
+  place-content: center;
+}
+#slide-left,
+#slide-right {
+  height: 350px;
+  width: 175px;
+  position: relative;
+  overflow: hidden;
+  opacity: 50%;
+}
+.image {
+  height: 100%;
+  width: 100%;
+}
+.image.slide {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 200%;
+  left: -50%;
+}
+.image.hide {
+  /* display: none; */
+}
+#display {
+  display: flex;
   place-content: center;
   height: 350px;
-  width: 700px;
-  border: 2px solid black;
-}
-.display {
-  height: 350px;
   width: 350px;
-  border: 2px solid black;
 }
 .next {
   position: absolute;
