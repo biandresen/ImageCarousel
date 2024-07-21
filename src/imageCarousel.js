@@ -21,6 +21,7 @@ export function createImages(imageLinkList) {
     imageList.push(image);
     count++;
 
+    //Add links to open selected image in new tab
     image.addEventListener("click", () => {
       window.open(imageLink, "_blank").focus();
     });
