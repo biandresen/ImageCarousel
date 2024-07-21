@@ -1,6 +1,14 @@
-const imageList = [];
-const buttonList = [];
-let placement = 0;
+//IMAGE CAROUSEL
+//1. Add image URLs to a list (imageLinkList) to set up the images you want to use in the carousel and call "createImages(list)"
+//2. Call setUpElements();
+//3. Call displayImages() to start the carousel.
+//4. Call autoScroll() to activate the interval of displaying images.
+//Tips: Change between nr.1 and nr.2 for changing the direction of the images.
+//The size of the carousel can be changed by changing the pixels of the "image-carousel-module" and the rest should change relative to that.
+
+const imageList = []; //List of URLs
+const buttonList = []; //List of all the image-select-buttons
+let placement = 0; //Says which image from the list that should be displayed where according to displayImages().
 
 export function createImages(imageLinkList) {
   let count = 0;
@@ -12,6 +20,10 @@ export function createImages(imageLinkList) {
     image.src = imageLink;
     imageList.push(image);
     count++;
+
+    image.addEventListener("click", () => {
+      window.open(imageLink, "_blank").focus();
+    });
   });
 }
 
@@ -157,3 +169,113 @@ export function autoScroll() {
     changePosition(2);
   }, 5000);
 }
+
+//EXAMPLE of HTML:
+// <!DOCTYPE html>
+// <html lang="en">
+//   <head>
+//     <meta charset="UTF-8" />
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+//     <title>Image Carousel</title>
+//     <link
+//       rel="stylesheet"
+//       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+//       integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+//       crossorigin="anonymous"
+//       referrerpolicy="no-referrer"
+//     />
+//   </head>
+//   <body></body>
+// </html>
+
+//CSS:
+// .image-carousel-module {
+//   position: relative;
+//   height: 700px;
+//   width: 1700px;
+//   background: transparent;
+//   box-shadow: var(--shadow);
+//   display: grid;
+//   place-content: center;
+//   border-radius: 10px;
+// }
+// .slide-container {
+//   height: 100%;
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 5px;
+// }
+// .slides {
+//   display: flex;
+//   place-content: center;
+// }
+// .left-slide,
+// .right-slide {
+//   transform: scale(0.9);
+//   height: 100%;
+//   width: 23%;
+//   opacity: 30%;
+// }
+// .middle-slide {
+//   display: flex;
+//   place-content: center;
+//   max-height: 100%;
+//   max-width: 45%;
+//   box-shadow: var(--shadow);
+// }
+// .arrow {
+//   position: absolute;
+//   width: fit-content;
+//   height: fit-content;
+//   color: var(--text-color);
+//   background: transparent;
+//   border: transparent;
+//   border-radius: 50%;
+//   cursor: pointer;
+//   transition: 0.4s;
+// }
+// .arrow:hover {
+//   transform: scale(1.2);
+//   transition: 0.4s;
+// }
+// .left-arrow {
+//   top: 50%;
+//   left: 0.8%;
+// }
+// .right-arrow {
+//   top: 50%;
+//   right: 0.8%;
+// }
+// .select-container {
+//   position: absolute;
+//   display: flex;
+//   gap: 10px;
+//   bottom: 4%;
+//   left: 50%;
+//   translate: -50%;
+// }
+// .image-select-button {
+//   width: 12px;
+//   height: 12px;
+//   border: 2px solid var(--text-color);
+//   background: transparent;
+//   border-radius: 50%;
+//   cursor: pointer;
+//   transition: 0.3s;
+// }
+// .image-select-button:hover {
+//   transform: scale(1.2);
+//   transition: 0.3s;
+// }
+// .image-select-button.active {
+//   background: transparent;
+//   border: 3px solid var(--text-color);
+//   transform: scale(1.3);
+// }
+// .image {
+//   height: 100%;
+//   width: 100%;
+//   border-radius: 5px;
+// }

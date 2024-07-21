@@ -1,10 +1,5 @@
 import "./assets/styles/style.css";
-import {
-  createImages,
-  displayImages,
-  setUpElements,
-  autoScroll,
-} from "./imageCarousel";
+import { createImages, displayImages, setUpElements, autoScroll } from "./imageCarousel";
 
 const imageLocations = [
   "./assets/images/img1.jpg",
@@ -13,7 +8,10 @@ const imageLocations = [
   "./assets/images/img4.jpg",
   "./assets/images/img5.jpg",
   "./assets/images/img6.jpg",
+  "./assets/images/img7.jpg",
+  "./assets/images/img8.jpg",
 ];
+
 createImages(imageLocations);
 setUpElements();
 displayImages();
